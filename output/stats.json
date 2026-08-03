@@ -1,0 +1,12 @@
+{
+  "start_time": 1785783828.6151233,
+  "scanned": 30,
+  "hits": 0,
+  "errors": 840,
+  "recent_scanned": 0,
+  "recent_window_start": 1785783922.5903556,
+  "scan_rate_total_addr_per_sec": 0.32,
+  "scan_rate_recent_addr_per_sec": 0.31,
+  "keygen_rate_keys_per_sec": 0.48,
+  "total_running_sec": 94.0
+}
