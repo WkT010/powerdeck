@@ -1,10 +1,10 @@
 {
-  "scanned": 7,
+  "scanned": 8,
   "hits": 0,
   "start_time": 1785755146.3486483,
-  "total_running_sec": 107.9,
-  "scan_rate_total_addr_per_sec": 0.06,
+  "total_running_sec": 116.9,
+  "scan_rate_total_addr_per_sec": 0.07,
   "scan_rate_recent_addr_per_sec": 0.15,
   "keygen_rate_keys_per_sec": 0.1,
-  "last_update": "2026-08-03T11:07:34.200306+00:00"
+  "last_update": "2026-08-03T11:07:43.198947+00:00"
 }
