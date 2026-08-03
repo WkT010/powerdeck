@@ -1,0 +1,7 @@
+# 运行时产物（不入库）
+output/*.log
+output/*.stdout.log
+output/found_wallets.jsonl
+output/keepalive_failures
+.scanner.pid
+.viewer.pid

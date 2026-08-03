@@ -1,12 +1,12 @@
 {
-  "scanned": 2130,
+  "scanned": 2290,
   "hits": 0,
   "started_at": "2026-08-03T10:07:37.342747+00:00",
-  "keygen_rate_keys_per_sec": 363.4,
-  "last_started_at": "2026-08-03T13:53:22.536844+00:00",
-  "scan_rate_total_addr_per_sec": 0.241,
-  "scan_rate_recent_addr_per_sec": 0.249,
-  "total_running_sec": 3448.1,
+  "keygen_rate_keys_per_sec": 367.89,
+  "last_started_at": "2026-08-03T14:59:47.906563+00:00",
+  "scan_rate_total_addr_per_sec": 0.24,
+  "scan_rate_recent_addr_per_sec": 0.227,
+  "total_running_sec": 665.7,
   "last_stop_at": "2026-08-03T10:26:35.384576+00:00",
-  "last_progress_at": "2026-08-03T14:50:50.635695+00:00"
+  "last_progress_at": "2026-08-03T15:10:53.578857+00:00"
 }
