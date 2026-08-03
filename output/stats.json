@@ -1,10 +1,10 @@
 {
-  "scanned": 2210,
+  "scanned": 2540,
   "hits": 1,
-  "scan_rate_total_addr_per_sec": 33.45,
-  "scan_rate_recent_addr_per_sec": 33.31,
-  "keygen_rate_keys_per_sec": 33.45,
-  "total_running_sec": 66.1,
+  "scan_rate_total_addr_per_sec": 33.39,
+  "scan_rate_recent_addr_per_sec": 33.11,
+  "keygen_rate_keys_per_sec": 33.39,
+  "total_running_sec": 76.1,
   "chains": [
     "ethereum",
     "polygon",
@@ -18,5 +18,5 @@
     "blast"
   ],
   "workers": 10,
-  "last_update": "2026-08-03T21:04:16.062832+00:00"
+  "last_update": "2026-08-03T21:04:26.067309+00:00"
 }
