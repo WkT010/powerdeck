@@ -28,6 +28,7 @@ import logging
 import signal
 import sys
 import traceback
+from collections import deque
 from datetime import datetime, timezone
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -305,30 +306,73 @@ def save_stats(stats: dict):
         log.debug("写入 stats 失败: %s", e)
 
 
+def benchmark_keygen(samples: int = 2000) -> float:
+    """返回每秒可生成的私钥+地址对数量（纯 CPU 算力基准）。"""
+    start = time.perf_counter()
+    for _ in range(samples):
+        gen_keypair()
+    elapsed = max(time.perf_counter() - start, 1e-9)
+    return samples / elapsed
+
+
 # ============================================================
 #                         主循环
 # ============================================================
 
 def main_loop():
     stats = load_stats()
+
+    # 启动基准：纯 CPU 私钥+地址生成速度
     log.info("==== 多链私钥扫描器启动 ====")
     log.info("覆盖链: %s", ", ".join(CHAINS.keys()))
     log.info("Alchemy 增强扫描: %s", "已启用" if ALCHEMY_API_KEY else "未启用（仅查主流代币）")
     log.info("扫描间隔: %.2fs  输出目录: %s", SCAN_INTERVAL, OUTPUT_DIR)
+    log.info("正在计算基准速度（密钥对生成/秒）...")
+    keygen_rate = benchmark_keygen(2000)
+    log.info("计算速度(密钥对生成/秒): %.1f keys/s", keygen_rate)
+    stats["keygen_rate_keys_per_sec"] = round(keygen_rate, 2)
+    stats["last_started_at"] = datetime.now(timezone.utc).isoformat()
+    if "started_at" not in stats:
+        stats["started_at"] = stats["last_started_at"]
+
+    start_ts = time.perf_counter()
+    scanned_at_start = stats["scanned"]
+    window = deque()  # 每个元素: time.perf_counter()（最近若干个地址完成时间）
+    WINDOW = 30
+    scan_recent = 0.0
+    scan_total = 0.0
 
     while not _STOP:
         try:
             pk, addr = gen_keypair()
             hits = scan_address(addr)
             stats["scanned"] += 1
+            now_ts = time.perf_counter()
+            window.append(now_ts)
+            if len(window) > WINDOW:
+                window.popleft()
+
             if hits:
                 stats["hits"] += 1
                 record_hit(pk, addr, hits)
 
-            # 每 10 轮输出一次进度
+            elapsed_total = max(now_ts - start_ts, 1e-9)
+            scanned_this_run = stats["scanned"] - scanned_at_start
+            scan_total = scanned_this_run / elapsed_total
+            scan_recent = (len(window) - 1) / max(window[-1] - window[0], 1e-9) if len(window) >= 2 else scan_total
+
+            # 每 10 轮输出一次进度（带速度）
             if stats["scanned"] % 10 == 0:
-                log.info("已扫描 %d 个地址，命中 %d 个", stats["scanned"], stats["hits"])
+                stats["scan_rate_total_addr_per_sec"] = round(scan_total, 3)
+                stats["scan_rate_recent_addr_per_sec"] = round(scan_recent, 3)
+                stats["last_progress_at"] = datetime.now(timezone.utc).isoformat()
+                stats["total_running_sec"] = round(elapsed_total, 1)
                 save_stats(stats)
+                log.info(
+                    "已扫描 %d 个地址，命中 %d 个 | 扫描速度(全程) %.3f addr/s | 扫描速度(近%d) %.3f addr/s | 计算速度 %.1f keys/s",
+                    stats["scanned"], stats["hits"],
+                    scan_total, len(window), scan_recent, keygen_rate,
+                )
 
         except KeyboardInterrupt:
             break
@@ -340,8 +384,17 @@ def main_loop():
         if SCAN_INTERVAL > 0:
             time.sleep(SCAN_INTERVAL)
 
+    # 最终统计
+    elapsed_total = max(time.perf_counter() - start_ts, 1e-9)
+    scanned_this_run = stats["scanned"] - scanned_at_start
+    scan_total = scanned_this_run / elapsed_total
+    stats["scan_rate_total_addr_per_sec"] = round(scan_total, 3)
+    stats["scan_rate_recent_addr_per_sec"] = round(scan_recent, 3)
+    stats["total_running_sec"] = round(elapsed_total, 1)
+    stats["last_stop_at"] = datetime.now(timezone.utc).isoformat()
     save_stats(stats)
-    log.info("==== 扫描器退出，累计扫描 %d，命中 %d ====", stats["scanned"], stats["hits"])
+    log.info("==== 扫描器退出，累计扫描 %d，命中 %d，全程扫描速度 %.3f addr/s，计算速度 %.1f keys/s ====",
+             stats["scanned"], stats["hits"], scan_total, keygen_rate)
 
 
 if __name__ == "__main__":
