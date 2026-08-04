@@ -1,0 +1,8 @@
+{
+  "scan_rate_total_addr_per_sec": 1234.56,
+  "scan_rate_recent_addr_per_sec": 2100.78,
+  "keygen_rate_keys_per_sec": 98765.43,
+  "scanned": 15432100,
+  "hits": 3,
+  "total_running_sec": 12500.5
+}
