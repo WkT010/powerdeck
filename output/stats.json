@@ -1,0 +1,25 @@
+{
+  "scan_rate_total_addr_per_sec": 15.97,
+  "scan_rate_recent_addr_per_sec": 15.91,
+  "keygen_rate_keys_per_sec": 15.97,
+  "scanned": 1300,
+  "hits": 0,
+  "total_running_sec": 81.4,
+  "chains": [
+    "ethereum",
+    "polygon",
+    "arbitrum",
+    "optimism",
+    "base",
+    "linea",
+    "scroll",
+    "zksync",
+    "mantle",
+    "blast"
+  ],
+  "tokens": [
+    "USDC",
+    "USDT"
+  ],
+  "last_update": "2026-08-04T01:08:23.345777Z"
+}
