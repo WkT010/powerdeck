@@ -1,0 +1,5 @@
+ecdsa>=0.18.0
+eth-utils>=2.1.0
+requests>=2.31.0
+aiohttp>=3.9.0
+flask>=3.0.0
