@@ -1,16 +1,17 @@
 {
-  "scanned": 8,
+  "scanned": 10,
   "hits": 0,
   "start_time": 1785834387.2309432,
   "scan_rate_total_addr_per_sec": 0.17,
-  "scan_rate_recent_addr_per_sec": 0.17,
-  "keygen_rate_keys_per_sec": 0.13,
-  "total_running_sec": 47,
+  "scan_rate_recent_addr_per_sec": 0.2,
+  "keygen_rate_keys_per_sec": 0.17,
+  "total_running_sec": 59,
   "recent_timestamps": [
-    1785834410.8065228,
     1785834416.806669,
     1785834422.8074236,
     1785834428.808228,
-    1785834434.8085988
+    1785834434.8085988,
+    1785834440.8081434,
+    1785834446.8065581
   ]
 }
