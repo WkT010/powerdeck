@@ -1,0 +1,21 @@
+{
+  "scanned": 100,
+  "hits": 0,
+  "total_running_sec": 88.1,
+  "scan_rate_total_addr_per_sec": 1.14,
+  "scan_rate_recent_addr_per_sec": 1.16,
+  "keygen_rate_keys_per_sec": 1.14,
+  "last_update": "2026-08-04T20:05:09.534586+00:00",
+  "chains": [
+    "ethereum",
+    "polygon",
+    "arbitrum",
+    "optimism",
+    "base",
+    "linea",
+    "scroll",
+    "zksync",
+    "mantle",
+    "blast"
+  ]
+}
