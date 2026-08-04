@@ -1,0 +1,32 @@
+{
+  "start_time": "2026-08-04T21:11:04.097947+00:00",
+  "total_running_sec": 60.6,
+  "scanned": 15,
+  "hits": 0,
+  "keys_generated": 15,
+  "scan_rate_total_addr_per_sec": 0.25,
+  "scan_rate_recent_addr_per_sec": 0.23,
+  "keygen_rate_keys_per_sec": 0.25,
+  "chains": [
+    "ethereum",
+    "polygon",
+    "arbitrum",
+    "optimism",
+    "base",
+    "linea",
+    "scroll",
+    "zksync",
+    "mantle",
+    "blast"
+  ],
+  "tokens": [
+    "USDT",
+    "USDC",
+    "DAI",
+    "WETH",
+    "WBTC",
+    "UNI",
+    "LINK",
+    "AAVE"
+  ]
+}
