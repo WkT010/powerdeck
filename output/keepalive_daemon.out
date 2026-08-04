@@ -1,0 +1,14 @@
+bash: run.sh: No such file or directory
+bash: start_viewer.sh: No such file or directory
+======== 保活报告 2026-08-04 04:04:12 ========
+scanner: 重启失败
+viewer: 重启失败
+扫描速度(全程)=N/A addr/s，扫描速度(近30)=N/A addr/s，计算速度=N/A keys/s
+累计扫描=N/A，命中=N/A，本次运行=N/As
+
+⚠ 连续失败 3 次，可能依赖或 RPC 出问题
+--- scanner.log 末尾 20 行 ---
+(文件不存在)
+--- viewer.log 末尾 10 行 ---
+(文件不存在)
+============================================================
