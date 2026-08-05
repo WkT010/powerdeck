@@ -1,13 +1,13 @@
 {
   "start_time": 1785898984.5059648,
-  "scanned": 226,
+  "scanned": 257,
   "hits": 1,
-  "last_update": 1785899052.881059,
-  "scan_rate_total_addr_per_sec": 3.31,
-  "scan_rate_recent_addr_per_sec": 3.35,
-  "keygen_rate_keys_per_sec": 3.35,
-  "total_running_sec": 68.38,
-  "recent_window_scanned": 28,
+  "last_update": 1785899062.2983518,
+  "scan_rate_total_addr_per_sec": 3.3,
+  "scan_rate_recent_addr_per_sec": 3.32,
+  "keygen_rate_keys_per_sec": 3.32,
+  "total_running_sec": 77.79,
+  "recent_window_scanned": 59,
   "recent_window_start": 1785899044.5117111,
-  "recent_keygen_count": 28
+  "recent_keygen_count": 59
 }
