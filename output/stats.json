@@ -2,7 +2,7 @@
   "scan_rate_total_addr_per_sec": 0.15,
   "scan_rate_recent_addr_per_sec": 0.17,
   "keygen_rate_keys_per_sec": 265.9,
-  "total_scanned": 5,
+  "total_scanned": 6,
   "total_hits": 0,
-  "total_running_sec": 33.5
+  "total_running_sec": 39.5
 }
