@@ -1,10 +1,10 @@
 {
-  "scanned": 28,
+  "scanned": 31,
   "hits": 0,
-  "total_running_sec": 86.1,
-  "scan_rate_total_addr_per_sec": 0.33,
-  "scan_rate_recent_addr_per_sec": 0.35,
-  "keygen_rate_keys_per_sec": 0.33,
+  "total_running_sec": 96.1,
+  "scan_rate_total_addr_per_sec": 0.32,
+  "scan_rate_recent_addr_per_sec": 0.33,
+  "keygen_rate_keys_per_sec": 0.32,
   "chains": [
     "ethereum",
     "polygon",
@@ -17,5 +17,5 @@
     "mantle",
     "blast"
   ],
-  "timestamp": "2026-08-05T15:08:04.818614+00:00"
+  "timestamp": "2026-08-05T15:08:14.847695+00:00"
 }
